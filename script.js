@@ -2,6 +2,7 @@ let messageEl = document.querySelector("#message-El")
 let sumEl = document.querySelector("#sum-El")
 let cardsEl = document.querySelector("#cards-El")
 
+let hello = ["🂡", "🂢", "🂣", "🂤", "🂥", "🂦", "🂧", "🂨", "🂩", "🂪", "🂫", "🂭", "🂮"]
 
 let cards = []
 let sum = 0
@@ -12,7 +13,8 @@ let message = ""
 
 function getRandomCard()
 {
-    let randomNumber = Math.floor( (Math.random()*13) + 1)
+    let randomNumber = Math.floor( (Math.random()*13) + 1);
+
     if(randomNumber > 10)
     {
         return 10;
@@ -25,16 +27,17 @@ function getRandomCard()
     {
         return randomNumber;
     }
+    
 }
 
 function startGame()
 {
     isAlive = true;
 
-    let firstCard = getRandomCard()
-    let secondCard = getRandomCard()
+    let firstCard = hello[getRandomCard()];
+    let secondCard = hello[getRandomCard()];
 
-    sum = firstCard + secondCard;
+    sum = getRandomCard() + getRandomCard();
 
     cards = [firstCard, secondCard];
 
@@ -65,8 +68,8 @@ function newCard()
 {
     if(isAlive === true && hasBlackJack === false)
     {
-        let card = getRandomCard();
-        sum += card;
+        let card = hello[getRandomCard()];
+        sum += getRandomCard();
         cards.push(card);
         renderGame();
     }
